@@ -20,4 +20,8 @@ class Vehicle
   define_method(:save) do
     @@vehicles.push(self)
   end
+
+  define_singleton_method(:clear) do
+    @@vehicles = []
+  end
 end
