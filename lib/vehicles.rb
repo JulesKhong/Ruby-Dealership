@@ -12,4 +12,12 @@ class Vehicle
     @number_of_doors = attributes.fetch(:number_of_doors)
     @id = @@vehicles.length().+(1)
   end
+
+  define_singleton_method(:all) do
+    @@vehicles
+  end
+
+  define_method(:save) do
+    @@vehicles.push(self)
+  end
 end
