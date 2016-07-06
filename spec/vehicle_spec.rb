@@ -36,4 +36,11 @@ describe(Vehicle) do
       expect(Vehicle.all()).to(eq([]))
     end
   end
+
+  describe('#age') do
+    it("returns the age of the vehicle") do
+      test_vehicle = Vehicle.new({:make => "Toyota", :model => "Prius", :year => "2000", :color => "blue", :engine_size => "4L", :number_of_doors => "4"})
+      expect(test_vehicle.age()).to(eq(16))
+    end
+  end
 end
