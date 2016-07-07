@@ -8,7 +8,7 @@ get('/') do
 end
 
 get('/vehicles') do
-  @vehicles = Vehicles.all()
+  @vehicles = Vehicle.all()
   erb(:vehicles)
 end
 
@@ -23,5 +23,7 @@ post('/success') do
   @color = params.fetch('color')
   @engine_size = params.fetch('engine_size')
   @number_of_doors = params.fetch('number_of_doors')
+  vehicle = Vehicle.new({:make => @make, :model => @model, :year => @year, :color => @color, :engine_size => @engine_size, :number_of_doors => @number_of_doors})
+  vehicle.save()
   erb(:success)
 end
