@@ -9,3 +9,11 @@ describe('loads the home page',{:type => :feature}) do
     expect(page).to have_content('perfect')
   end
 end
+
+describe('loads the sell your vehicle' , {:type => :feature}) do
+  it('shows the sell page when you click on the sell button') do
+    visit('/')
+    click_button('Sell your vehicle')
+    expect(page).to have_content('Submit')
+  end
+end
