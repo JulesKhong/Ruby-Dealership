@@ -29,4 +29,8 @@ class Vehicle
     new_time = Time.new()
     new_time.year().-(@year.to_i())
   end
+
+  define_method(:id) do
+    @id
+  end
 end

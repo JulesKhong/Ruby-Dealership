@@ -43,4 +43,12 @@ describe(Vehicle) do
       expect(test_vehicle.age()).to(eq(16))
     end
   end
+
+  describe('#id') do
+    it("returns the id of the vehicle") do
+    test_vehicle = Vehicle.new({:make => "Toyota", :model => "Prius", :year => "2000", :color => "blue", :engine_size => "4L", :number_of_doors => "4"})
+    test_vehicle.save()
+    expect(test_vehicle.id()).to(eq(1))
+    end
+  end
 end
