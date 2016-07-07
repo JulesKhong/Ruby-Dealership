@@ -1,7 +1,7 @@
 <h1>List of vehicle inventory</h1>
 
 <ul>
-  <% @vehicles.each() do |car| %>
-    <li><%= car.make() %> <%= car.model()%></li>
+  <% @vehicles.each() do |vehicle| %>
+    <li><a href="/vehicles/<%= vehicle.id() %>"><%= vehicle.make() %> <%= vehicle.model()%></a></li>
     <% end %>
 </ul>

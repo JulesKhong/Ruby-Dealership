@@ -12,18 +12,24 @@ get('/vehicles') do
   erb(:vehicles)
 end
 
-get('/sell') do
-  erb(:sell)
+get('/vehicle/new') do
+  erb(:vehicles_form)
 end
 
-post('/success') do
-  @make = params.fetch('make')
-  @model = params.fetch('model')
-  @year = params.fetch('year')
-  @color = params.fetch('color')
-  @engine_size = params.fetch('engine_size')
-  @number_of_doors = params.fetch('number_of_doors')
-  vehicle = Vehicle.new({:make => @make, :model => @model, :year => @year, :color => @color, :engine_size => @engine_size, :number_of_doors => @number_of_doors})
+post('/vehicles') do
+  make = params.fetch('make')
+  model = params.fetch('model')
+  year = params.fetch('year')
+  color = params.fetch('color')
+  engine_size = params.fetch('engine_size')
+  number_of_doors = params.fetch('number_of_doors')
+  vehicle = Vehicle.new(make, model, year, color, engine_size, number_of_doors)
+  # vehicle = Vehicle.new({:make => make, :model => model, :year => year, :color => color, :engine_size => engine_size, :number_of_doors => number_of_doors})
   vehicle.save()
   erb(:success)
+end
+
+get('/vehicles/:id') do
+  @vehicle = Vehicle.find(params.fetch("id").to_i())
+  erb(:vehicle)
 end
